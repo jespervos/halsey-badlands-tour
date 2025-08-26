@@ -1,5 +1,5 @@
 {
-  "name": "halsey-bandlands-tour",
+  "name": "halsey-badlands-tour",
   "description": "Sanity + Nuxt: A Powerful Website Starter with Real-time Visual Editing",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",

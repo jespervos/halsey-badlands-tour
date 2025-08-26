@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-primary: #efe3c7;
+  --color-secondary: #8aa99d;
+
+  --font-mono: "Gravitica Mono", "monospace";
+  --font-primary: "Helvetica", "sans-serif";
+}
+
+@utility text-small {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+}
+@utility text-large {
+  font-family: var(--font-primary);
+  font-size: 3rem;
+  color: var(--color-primary);
+  letter-spacing: -0.06em;
+  font-weight: 800;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 2px var(--color-primary);
+}
+
+@utility button {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  padding: 0 1rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+html {
+  background-color: var(--color-primary);
+  background-image: url("/img/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100lvh;
+  padding: 2rem;
+}

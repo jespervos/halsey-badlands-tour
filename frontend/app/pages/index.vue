@@ -11,21 +11,35 @@ useSeoMeta({
 });
 
 const filter = ref<string>("all");
+
+// Get unique continents that have shows
+const availableContinents = computed(() => {
+  if (!shows.value) return [];
+  const continents = new Set(shows.value.map((show: any) => show.continent));
+  return Array.from(continents);
+});
+
+// Define continent labels
+const continentLabels = {
+  "north-america": "North America",
+  "uk-europe": "UK & Europe",
+  australia: "Australia",
+};
 </script>
 
 <template>
-  <div class="flex flex-col items-center gap-y-16">
+  <div class="flex flex-col items-center gap-y-32">
     <header>
       <h1 class="sr-only">Halsey Back to Badlands, The Tour</h1>
       <img
         src="/img/header.webp"
         alt="Halsey back to badlands, the tour"
-        class="max-w-[25rem]"
+        class="max-w-[35rem]"
       />
     </header>
-    <fieldset>
+    <fieldset v-if="availableContinents.length > 1">
       <legend class="sr-only">Filter by continent</legend>
-      <div class="flex gap-2 flex-wrap">
+      <div class="flex gap-2 overflow-x-auto">
         <label class="pill">
           <input
             v-model="filter"
@@ -36,35 +50,22 @@ const filter = ref<string>("all");
           />
           <span>All</span>
         </label>
-        <label class="pill">
+        <label
+          v-for="continent in availableContinents"
+          :key="continent"
+          class="pill"
+        >
           <input
             v-model="filter"
             type="radio"
             name="continent"
-            value="north-america"
+            :value="continent"
             class="appearance-none"
           />
-          <span>North America</span>
-        </label>
-        <label class="pill">
-          <input
-            v-model="filter"
-            type="radio"
-            name="continent"
-            value="uk-europe"
-            class="appearance-none"
-          />
-          <span>UK & Europe</span>
-        </label>
-        <label class="pill">
-          <input
-            v-model="filter"
-            type="radio"
-            name="continent"
-            value="australia"
-            class="appearance-none"
-          />
-          <span>Australia</span>
+          <span>{{
+            continentLabels[continent as keyof typeof continentLabels] ||
+            continent
+          }}</span>
         </label>
       </div>
     </fieldset>

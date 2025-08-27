@@ -60,6 +60,7 @@
   font-family: var(--font-mono);
   letter-spacing: -0.04em;
   font-weight: 500;
+  white-space: nowrap;
 
   &:hover {
     background-color: var(--color-primary);
@@ -79,6 +80,7 @@ html {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-position: center;
   min-height: 100lvh;
   padding: 2rem;
 }

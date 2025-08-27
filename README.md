@@ -1,2 +1,6 @@
 # Halsey Bandlands tour
-# halsey-badlands-tour
+
+## TODO
+
+- Filter by continent
+- NuxtImg

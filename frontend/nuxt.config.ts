@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ["@nuxtjs/sanity", "@nuxt/fonts"],
+  modules: ["@nuxtjs/sanity", "@nuxt/fonts", "@nuxt/image"],
   sanity: {
     projectId: process.env.NUXT_SANITY_PROJECT_ID,
     dataset: process.env.NUXT_SANITY_DATASET,
@@ -33,5 +33,8 @@ export default defineNuxtConfig({
     optimizeDeps: {
       include: ["shallowequal", "lodash/startCase.js"],
     },
+  },
+  image: {
+    format: ["webp"],
   },
 });

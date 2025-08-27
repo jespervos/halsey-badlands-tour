@@ -10,7 +10,9 @@ useSeoMeta({
   ogImage: "/og-image.png",
 });
 
-const filter = useState<string>("filter", () => "all");
+console.log(shows.value);
+
+const filter = ref<string>("all");
 </script>
 
 <template>
@@ -25,10 +27,8 @@ const filter = useState<string>("filter", () => "all");
     </header>
     <fieldset>
       <legend class="sr-only">Filter by continent</legend>
-      <div class="flex gap-x-6">
-        <label
-          class="cursor-pointer rounded-full border-2 border-primary bg-transparent px-4 py-2 text-primary transition-colors has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-[var(--color-primary)] has-[:checked]:text-secondary"
-        >
+      <div class="flex gap-2 flex-wrap">
+        <label class="pill">
           <input
             v-model="filter"
             type="radio"
@@ -38,9 +38,7 @@ const filter = useState<string>("filter", () => "all");
           />
           <span>All</span>
         </label>
-        <label
-          class="cursor-pointer rounded-full border-2 border-primary bg-transparent px-4 py-2 text-primary transition-colors has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-[var(--color-primary)] has-[:checked]:text-secondary"
-        >
+        <label class="pill">
           <input
             v-model="filter"
             type="radio"
@@ -50,9 +48,7 @@ const filter = useState<string>("filter", () => "all");
           />
           <span>North America</span>
         </label>
-        <label
-          class="cursor-pointer rounded-full border-2 border-primary bg-transparent px-4 py-2 text-primary transition-colors has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-[var(--color-primary)] has-[:checked]:text-secondary"
-        >
+        <label class="pill">
           <input
             v-model="filter"
             type="radio"
@@ -62,9 +58,7 @@ const filter = useState<string>("filter", () => "all");
           />
           <span>UK & Europe</span>
         </label>
-        <label
-          class="cursor-pointer rounded-full border-2 border-primary bg-transparent px-4 py-2 text-primary transition-colors has-[:checked]:border-[var(--color-primary)] has-[:checked]:bg-[var(--color-primary)] has-[:checked]:text-secondary"
-        >
+        <label class="pill">
           <input
             v-model="filter"
             type="radio"
@@ -77,7 +71,12 @@ const filter = useState<string>("filter", () => "all");
       </div>
     </fieldset>
     <ul class="flex flex-col items-center gap-y-12">
-      <Show v-for="show in shows" :key="show._id" v-bind="show" />
+      <Show
+        v-for="show in shows"
+        v-if="filter === 'all' || show.continent === filter"
+        :key="show._id"
+        v-bind="show"
+      />
     </ul>
     <footer>
       <img

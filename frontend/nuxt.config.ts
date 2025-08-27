@@ -37,4 +37,17 @@ export default defineNuxtConfig({
   image: {
     format: ["webp"],
   },
+  fonts: {
+    defaults: {
+      weights: [300, 500, 800],
+      styles: ["normal"],
+    },
+    families: [
+      { name: "Gravitica Mono", provider: "local" },
+      { name: "Helvetica", provider: "local" },
+    ],
+    experimental: {
+      processCSSVariables: true,
+    },
+  },
 });

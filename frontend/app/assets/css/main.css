@@ -75,9 +75,10 @@
 
 html {
   background-color: var(--color-primary);
-  background-image: url("/img/background.jpg");
+  background-image: url("/img/background.webp");
   background-size: cover;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   min-height: 100lvh;
   padding: 2rem;
 }

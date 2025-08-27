@@ -10,8 +10,6 @@ useSeoMeta({
   ogImage: "/og-image.png",
 });
 
-console.log(shows.value);
-
 const filter = ref<string>("all");
 </script>
 
@@ -20,7 +18,7 @@ const filter = ref<string>("all");
     <header>
       <h1 class="sr-only">Halsey Back to Badlands, The Tour</h1>
       <img
-        src="/img/header.png"
+        src="/img/header.webp"
         alt="Halsey back to badlands, the tour"
         class="max-w-[25rem]"
       />
@@ -71,16 +69,16 @@ const filter = ref<string>("all");
       </div>
     </fieldset>
     <ul class="flex flex-col items-center gap-y-12">
-      <Show
-        v-for="show in shows"
-        v-if="filter === 'all' || show.continent === filter"
-        :key="show._id"
-        v-bind="show"
-      />
+      <template v-for="show in shows" :key="show._id">
+        <Show
+          v-if="filter === 'all' || show.continent === filter"
+          v-bind="show"
+        />
+      </template>
     </ul>
     <footer>
       <img
-        src="/img/footer.png"
+        src="/img/footer.webp"
         alt="illustration of mountains"
         class="max-w-[12rem]"
       />

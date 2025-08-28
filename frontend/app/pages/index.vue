@@ -42,9 +42,12 @@ const continentLabels = {
         class="max-w-[min(100%,35rem)] mx-auto"
       />
     </header>
-    <fieldset v-if="availableContinents.length > 1" class="relative w-screen">
+    <fieldset
+      v-if="availableContinents.length > 1"
+      class="relative max-w-full overflow-hidden"
+    >
       <legend class="sr-only">Filter by continent</legend>
-      <div class="flex gap-2 overflow-auto w-screen">
+      <div class="flex gap-2 overflow-auto max-w-full">
         <label class="pill">
           <input
             v-model="filter"
@@ -74,7 +77,7 @@ const continentLabels = {
         </label>
       </div>
     </fieldset>
-    <ul class="flex flex-col items-center gap-y-12">
+    <ul class="flex flex-col items-center gap-y-12 relative">
       <template v-for="show in shows" :key="show._id">
         <Show
           v-if="filter === 'all' || show.continent === filter"

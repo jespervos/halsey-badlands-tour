@@ -480,7 +480,7 @@ export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./app/sanity/queries.ts
 // Variable: showsQuery
-// Query: *[_type == "show"] | order(date desc, _updatedAt desc) {		...	}
+// Query: *[_type == "show"] | order(date asc) {		...	}
 export type ShowsQueryResult = Array<never>;
 // Variable: settingsQuery
 // Query: *[_type == "settings"][0]{			title,			description[]{						...,						markDefs[]{							...,							_type == "link" => {								"link": {									...,									_type == "link" => {	"page": page->slug.current,	"post": post->slug.current}								}							},						}					},			"ogImage": ogImage.asset->url		}
@@ -534,7 +534,7 @@ export type SettingsQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[_type == \"show\"] | order(date desc, _updatedAt desc) {\n\t\t...\n\t}": ShowsQueryResult;
+    "*[_type == \"show\"] | order(date asc) {\n\t\t...\n\t}": ShowsQueryResult;
     "\n\t\t*[_type == \"settings\"][0]{\n\t\t\ttitle,\n\t\t\tdescription[]{\n\t\t\t\t\t\t...,\n\t\t\t\t\t\tmarkDefs[]{\n\t\t\t\t\t\t\t...,\n\t\t\t\t\t\t\t_type == \"link\" => {\n\t\t\t\t\t\t\t\t\"link\": {\n\t\t\t\t\t\t\t\t\t...,\n\t\t\t\t\t\t\t\t\t\n_type == \"link\" => {\n\t\"page\": page->slug.current,\n\t\"post\": post->slug.current\n}\n\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\"ogImage\": ogImage.asset->url\n\t\t}": SettingsQueryResult;
   }
 }

@@ -11,7 +11,13 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ["@nuxtjs/sanity", "@nuxt/fonts", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/sanity",
+    "@nuxt/fonts",
+    "@nuxt/image",
+    "@nuxtjs/seo",
+    "@nuxt/scripts",
+  ],
   sanity: {
     projectId: process.env.NUXT_SANITY_PROJECT_ID,
     dataset: process.env.NUXT_SANITY_DATASET,
@@ -48,6 +54,72 @@ export default defineNuxtConfig({
     ],
     experimental: {
       processCSSVariables: true,
+    },
+  },
+
+  site: {
+    name: "Back to Badlands tour",
+    description: "Back to Badlands tour",
+    url: process.env.URL || "http://localhost:3000",
+    indexable: true,
+  },
+
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: "en",
+      },
+      link: [
+        {
+          rel: "icon",
+          href: "/icon.svg",
+          type: "image/svg+xml",
+          sizes: "any",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "any",
+          href: "/icon-light.png",
+          media: "(prefers-color-scheme: dark)",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "any",
+          href: "/icon-dark.png",
+          media: "(prefers-color-scheme: dark)",
+        },
+        {
+          rel: "apple-touch-icon",
+          sizes: "any",
+          href: "/apple-touch-icon.png",
+        },
+        { rel: "manifest", href: "/site.webmanifest" },
+      ],
+      meta: [
+        { name: "theme-color", content: "#efe3c7" },
+        { name: "apple-mobile-web-app-capable", content: "yes" },
+        {
+          name: "viewport",
+          content: "width=device-width, initial-scale=1, viewport-fit=cover",
+        },
+        { charset: "UTF-8" },
+        { name: "apple-mobile-web-app-title", content: "Badlands Tour" },
+        { name: "application-name", content: "Badlands Tour" },
+        {
+          name: "apple-mobile-web-app-status-bar-style",
+          content: "black-translucent",
+        },
+      ],
+    },
+
+    scripts: {
+      registry: {
+        metaPixel: {
+          id: ["336617377178130", "386920928936604"],
+        },
+      },
     },
   },
 });

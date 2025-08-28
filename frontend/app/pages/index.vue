@@ -5,9 +5,9 @@ import type { ShowsQueryResult } from "~/sanity/types";
 const { data: shows } = await useSanityQuery<ShowsQueryResult>(showsQuery);
 
 useSeoMeta({
-  title: "Back to Badlands Tour",
+  title: "",
   description: "Halsey Back to Badlands, The Tour",
-  ogImage: "/og-image.png",
+  ogImage: "/ogimage.png",
 });
 
 const filter = ref<string>("all");

@@ -7,7 +7,7 @@
       </div>
     </div>
     <NuxtTime
-      :datetime="date"
+      :datetime="`${date}T19:00:00Z`"
       year="numeric"
       month="long"
       day="numeric"

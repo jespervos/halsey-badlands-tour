@@ -1,0 +1,18 @@
+{
+  "name": "Mark Laughlin",
+  "short_name": "Laughlin",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "display": "fullscreen",
+  "lang": "en",
+  "scope": "/",
+  "id": "/",
+  "start_url": "/"
+}

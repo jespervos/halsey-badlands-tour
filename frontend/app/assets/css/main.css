@@ -61,6 +61,7 @@
   letter-spacing: -0.04em;
   font-weight: 500;
   white-space: nowrap;
+  width: fit-content;
 
   &:hover {
     background-color: var(--color-primary);

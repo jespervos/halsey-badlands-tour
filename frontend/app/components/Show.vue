@@ -6,21 +6,35 @@
         {{ location }}
       </div>
     </div>
-    <NuxtTime
-      :datetime="`${date}T19:00:00Z`"
-      year="numeric"
-      month="long"
-      day="numeric"
-      class="order-1 text-small"
-    />
+    <p class="order-1 text-small">{{ formattedDate }}</p>
     <NuxtLink :to="link" class="order-3 button">Tickets</NuxtLink>
   </li>
 </template>
 
 <script lang="ts" setup>
-defineProps<{
+const props = defineProps<{
   location: string;
   date: string;
   link: string;
 }>();
+
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
+const formattedDate = computed(() => {
+  const [year, month, day] = props.date.split("-").map(Number);
+  return `${day} ${months[month - 1]} ${year}`;
+});
 </script>

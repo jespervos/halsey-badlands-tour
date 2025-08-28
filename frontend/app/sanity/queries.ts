@@ -14,8 +14,7 @@ link {
 	}
 `;
 
-export const showsQuery =
-  defineQuery(`*[_type == "show"] | order(date desc, _updatedAt desc) {
+export const showsQuery = defineQuery(`*[_type == "show"] | order(date asc) {
 		...
 	}`);
 export const settingsQuery = defineQuery(/* groq */ `

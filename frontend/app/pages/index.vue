@@ -29,12 +29,12 @@ const continentLabels = {
 
 <template>
   <div class="flex flex-col items-center gap-y-32">
-    <header>
+    <header class="w-full">
       <h1 class="sr-only">Halsey Back to Badlands, The Tour</h1>
       <img
         src="/img/header.webp"
         alt="Halsey back to badlands, the tour"
-        class="max-w-[35rem]"
+        class="max-w-[min(100%,35rem)] mx-auto"
       />
     </header>
     <fieldset v-if="availableContinents.length > 1">

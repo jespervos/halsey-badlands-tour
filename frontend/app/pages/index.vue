@@ -47,7 +47,7 @@ const continentLabels = {
       class="relative max-w-full overflow-hidden"
     >
       <legend class="sr-only">Filter by continent</legend>
-      <div class="flex gap-2 overflow-auto max-w-full">
+      <div class="flex gap-2 flex-wrap justify-center">
         <label class="pill">
           <input
             v-model="filter"

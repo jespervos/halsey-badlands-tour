@@ -29,7 +29,12 @@ const continentLabels = {
 
 <template>
   <div class="flex flex-col items-center gap-y-32">
-    <header class="w-full">
+    <img
+      src="/img/background.webp"
+      alt=""
+      class="fixed w-screen h-screen top-0 left-0 object-cover"
+    />
+    <header class="w-full relative">
       <h1 class="sr-only">Halsey Back to Badlands, The Tour</h1>
       <img
         src="/img/header.webp"
@@ -37,9 +42,9 @@ const continentLabels = {
         class="max-w-[min(100%,35rem)] mx-auto"
       />
     </header>
-    <fieldset v-if="availableContinents.length > 1">
+    <fieldset v-if="availableContinents.length > 1" class="relative w-screen">
       <legend class="sr-only">Filter by continent</legend>
-      <div class="flex gap-2 overflow-x-auto">
+      <div class="flex gap-2 overflow-auto w-screen">
         <label class="pill">
           <input
             v-model="filter"
@@ -77,7 +82,7 @@ const continentLabels = {
         />
       </template>
     </ul>
-    <footer>
+    <footer class="relative">
       <img
         src="/img/footer.webp"
         alt="illustration of mountains"

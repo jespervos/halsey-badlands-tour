@@ -76,11 +76,11 @@
 
 html {
   background-color: var(--color-primary);
-  background-image: url("/img/background.webp");
+  /* background-image: url("/img/background.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center;
+  background-position: center; */
   min-height: 100lvh;
   padding: 2rem;
 }

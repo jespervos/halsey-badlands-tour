@@ -32,6 +32,12 @@ export const show = defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      name: 'soldout',
+      title: 'Sold Out',
+      type: 'boolean',
+      initialValue: false,
+    }),
+    defineField({
       name: 'continent',
       title: 'Continent',
       type: 'string',

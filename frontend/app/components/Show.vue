@@ -7,7 +7,9 @@
       </div>
     </div>
     <p class="order-1 text-small">{{ formattedDate }}</p>
-    <NuxtLink :to="link" class="order-3 button">Tickets</NuxtLink>
+    <NuxtLink :to="link" class="order-3 button">{{
+      soldout ? "Sold Out" : "Tickets"
+    }}</NuxtLink>
   </li>
 </template>
 
@@ -16,6 +18,7 @@ const props = defineProps<{
   location: string;
   date: string;
   link: string;
+  soldout: boolean;
 }>();
 
 const months = [
